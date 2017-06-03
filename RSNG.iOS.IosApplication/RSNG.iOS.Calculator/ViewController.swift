@@ -39,9 +39,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TextBoxResult: UITextField!
     
-    func addNumberToResult(number: String){
-        resultText += number;
+    func updateResultString(str:String){
+        resultText = str;
         TextBoxResult.text = resultText;
+    }
+    
+    func addNumberToResult(number: String){
+        updateResultString(str:resultText+number);
+    }
+    
+    func addWithLastElementCheck(symbol:String){
+        //ебанько вычисление последнего символа строки
+        let lastCharOfString:String = (String(resultText[resultText.index(before: resultText.endIndex)]))
+        if(lastCharOfString != symbol)
+        {
+            addNumberToResult(number: symbol);
+        }
     }
     
     @IBAction func OnButton1Pressed() {
@@ -83,17 +96,14 @@ class ViewController: UIViewController {
         addNumberToResult(number: "0");
     }
     @IBAction func OnButtonPlusPressed() {
-        //ебанько
-        let lastCharOfString:String = (String(resultText[resultText.index(before: resultText.endIndex)]))//resultText[resultText.endIndex]+"";//resultText.characters.last
-        let plusSymbol:String = "+"
-        if(lastCharOfString != plusSymbol)
-        {
-            addNumberToResult(number: plusSymbol);
-        }
+        addWithLastElementCheck(symbol: "+");
     }
+    
     @IBAction func OnButtonGetResultPressed() {
-        
-        addNumberToResult(number: "=");
+        let values = resultText.components(separatedBy: "+").flatMap { Int($0.trimmingCharacters(in: .whitespaces)) }
+        let sum = values.reduce(0, +)
+        resultText = (String(sum))
+        updateResultString(str: resultText);
     }
 }
 
