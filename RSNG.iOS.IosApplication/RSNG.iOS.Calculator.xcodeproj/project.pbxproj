@@ -62,7 +62,7 @@
 				3C040B401ED9D7A6005BF1B3 /* Info.plist */,
 			);
 			name = RSNG.iOS.Calculator;
-			path = RSNG.IosApplication;
+			path = RSNG.iOS.Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,7 +81,7 @@
 			dependencies = (
 			);
 			name = RSNG.iOS.Calculator;
-			productName = RSNG.IosApplication;
+			productName = RSNG.iOS.Calculator;
 			productReference = 3C040B311ED9D7A6005BF1B3 /* RSNG.iOS.Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -262,9 +262,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PK22M22HKU;
-				INFOPLIST_FILE = RSNG.IosApplication/Info.plist;
+				INFOPLIST_FILE = RSNG.iOS.Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-IosApplication";
+				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-iOS.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -275,9 +275,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PK22M22HKU;
-				INFOPLIST_FILE = RSNG.IosApplication/Info.plist;
+				INFOPLIST_FILE = RSNG.iOS.Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-IosApplication";
+				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-iOS.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  RSNG.IosApplication
+//  RSNG.iOS.Calculator
 //
 //  Created by Nikolay Grydinin on 27.05.17.
 //  Copyright © 2017 RSNG. All rights reserved.
