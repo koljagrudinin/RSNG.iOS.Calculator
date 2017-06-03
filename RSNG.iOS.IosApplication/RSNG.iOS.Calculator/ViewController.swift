@@ -49,6 +49,9 @@ class ViewController: UIViewController {
     }
     
     func addWithLastElementCheck(symbol:String){
+        if((resultText.characters.count) == 0){
+            return;
+        }
         //ебанько вычисление последнего символа строки
         let lastCharOfString:String = (String(resultText[resultText.index(before: resultText.endIndex)]))
         if(lastCharOfString != symbol)
@@ -62,19 +65,15 @@ class ViewController: UIViewController {
     }
     @IBAction func OnButton2Pressed() {
         addNumberToResult(number: "2");
-        
     }
     @IBAction func OnButton3Pressed() {
         addNumberToResult(number: "3");
-        
     }
     @IBAction func OnButton4Pressed() {
         addNumberToResult(number: "4");
-        
     }
     @IBAction func OnButton5Pressed() {
         addNumberToResult(number: "5");
-        
     }
     @IBAction func OnButton6Pressed() {
         addNumberToResult(number: "6");
@@ -82,23 +81,31 @@ class ViewController: UIViewController {
     @IBAction func OnButton7Pressed() {
         addNumberToResult(number: "7");
     }
-
     @IBAction func OnButton8Pressed() {
         addNumberToResult(number: "8");
-        
     }
     @IBAction func OnButton9Pressed() {
-        
         addNumberToResult(number: "9");
     }
     @IBAction func OnButton0Pressed() {
-        
         addNumberToResult(number: "0");
+    }
+    @IBAction func OnButtonClearPressed() {
+        updateResultString(str: "");
+    }
+    @IBAction func OnButtonMinusPressed() {
+        addWithLastElementCheck(symbol: "-");
     }
     @IBAction func OnButtonPlusPressed() {
         addWithLastElementCheck(symbol: "+");
     }
-    
+    @IBAction func OnButtonDivisionPressed() {
+        addWithLastElementCheck(symbol: "/");
+    }
+    @IBAction func OnButtonMultiplicationPressed() {
+        addWithLastElementCheck(symbol: "*");
+
+    }
     @IBAction func OnButtonGetResultPressed() {
         let values = resultText.components(separatedBy: "+").flatMap { Int($0.trimmingCharacters(in: .whitespaces)) }
         let sum = values.reduce(0, +)

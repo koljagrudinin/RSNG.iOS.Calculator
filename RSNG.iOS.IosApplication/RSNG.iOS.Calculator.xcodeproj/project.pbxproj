@@ -61,7 +61,6 @@
 				3C040B3D1ED9D7A6005BF1B3 /* LaunchScreen.storyboard */,
 				3C040B401ED9D7A6005BF1B3 /* Info.plist */,
 			);
-			name = RSNG.iOS.Calculator;
 			path = RSNG.iOS.Calculator;
 			sourceTree = "<group>";
 		};
@@ -267,6 +266,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-iOS.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -280,6 +280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "NGrudinin.RSNG-iOS.Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
