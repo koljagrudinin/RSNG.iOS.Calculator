@@ -35,25 +35,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var ButtonPlus: UIButton!
     
     @IBOutlet weak var Button0: UIButton!
-    var resultText:String = "";
     
     @IBOutlet weak var TextBoxResult: UITextField!
     
     func updateResultString(str:String){
-        resultText = str;
-        TextBoxResult.text = resultText;
+        TextBoxResult.text = str;
     }
     
     func addNumberToResult(number: String){
-        updateResultString(str:resultText+number);
+        updateResultString(str:TextBoxResult.text!+number);
     }
     
     func addWithLastElementCheck(symbol:String){
-        if((resultText.characters.count) == 0){
+        if((TextBoxResult.text!.characters.count) == 0){
             return;
         }
         //ебанько вычисление последнего символа строки
-        let lastCharOfString:String = (String(resultText[resultText.index(before: resultText.endIndex)]))
+        let lastCharOfString:String = (String(TextBoxResult.text![TextBoxResult.text!.index(before: TextBoxResult.text!.endIndex)]))
         if(lastCharOfString != symbol)
         {
             addNumberToResult(number: symbol);
@@ -81,6 +79,9 @@ class ViewController: UIViewController {
     @IBAction func OnButton7Pressed() {
         addNumberToResult(number: "7");
     }
+    @IBAction func TextBoxResultOnTouchDown() {
+        TextBoxResult.endEditing(true)
+    }
     @IBAction func OnButton8Pressed() {
         addNumberToResult(number: "8");
     }
@@ -92,6 +93,11 @@ class ViewController: UIViewController {
     }
     @IBAction func OnButtonClearPressed() {
         updateResultString(str: "");
+    }
+    @IBAction func OnTextBoxEditingEnd() {
+    }
+    @IBAction func OnButtonPointPressed() {
+        addWithLastElementCheck(symbol: ".");
     }
     @IBAction func OnButtonMinusPressed() {
         addWithLastElementCheck(symbol: "-");
@@ -107,10 +113,11 @@ class ViewController: UIViewController {
 
     }
     @IBAction func OnButtonGetResultPressed() {
-        let values = resultText.components(separatedBy: "+").flatMap { Int($0.trimmingCharacters(in: .whitespaces)) }
-        let sum = values.reduce(0, +)
-        resultText = (String(sum))
-        updateResultString(str: resultText);
+        let exp: NSExpression = NSExpression(format: "1.0*\(String(describing: TextBoxResult.text!))")
+        
+        let result:Double = exp.expressionValue(with:nil, context: nil) as! Double
+        
+        updateResultString(str: String(result));
     }
 }
 
